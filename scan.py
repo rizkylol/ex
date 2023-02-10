@@ -87,27 +87,33 @@ def jamet1(url):
     try:
         Agent1 = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:28.0) Gecko/20100101 Firefox/28.0'}
         cek = requests.get(url+'/filemanager/dialog.php', headers=Agent1, timeout=15)
-        if 'myAwesomeDropzone' in cek.text.encode('utf-8'):
-    else:
-        elif '404' in cek.text.encode('utf-8'):
+        if '<input type="hidden" id="cur_dir" value="' in cek.text.encode('utf-8'):
             print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
             open('single.txt', 'a').write(url+'/filemanager/dialog.php'+'\n')
         cek1 = requests.get(url+'/admin/filemanager/dialog.php', headers=Agent1, timeout=15)
-        if 'myAwesomeDropzone' in cek1.text.encode('utf-8'):
+        if '<input type="hidden" id="cur_dir" value="' in cek1.text.encode('utf-8'):
             print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
             open('single.txt', 'a').write(url+'/admin/filemanager/dialog.php'+'\n')
         cek2 = requests.get(url+'/assets/filemanager/dialog.php', headers=Agent1, timeout=15)
-        if 'myAwesomeDropzone' in cek2.text.encode('utf-8'):
+        if '<input type="hidden" id="cur_dir" value="' in cek2.text.encode('utf-8'):
             print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
             open('single.txt', 'a').write(url+'/assets/filemanager/dialog.php'+'\n')
         cek3 = requests.get(url+'/plugins/filemanager/dialog.php', headers=Agent1, timeout=15)
-        if 'myAwesomeDropzone' in cek3.text.encode('utf-8'):
+        if '<input type="hidden" id="cur_dir" value="' in cek3.text.encode('utf-8'):
             print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
             open('single.txt', 'a').write(url+'/plugins/filemanager/dialog.php'+'\n')
         cek4 = requests.get(url+'/admin/js/tinymce/plugins/filemanager/dialog.php', headers=Agent1, timeout=15)
-        if 'myAwesomeDropzone' in cek4.text.encode('utf-8'):
+        if '<input type="hidden" id="cur_dir" value="' in cek4.text.encode('utf-8'):
             print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
             open('single.txt', 'a').write(url+'/admin/js/tinymce/plugins/filemanager/dialog.php'+'\n')
+        cek5 = requests.get(url+'/js/filemanager/dialog.php', headers=Agent1, timeout=15)
+        if '<input type="hidden" id="cur_dir" value="' in cek5.text.encode('utf-8'):
+            print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
+            open('single.txt', 'a').write(url+'/js/filemanager/dialog.php'+'\n')
+        cek6 = requests.get(url+'/assets/js/tinymce/plugins/filemanager/dialog.php', headers=Agent1, timeout=15)
+        if '<input type="hidden" id="cur_dir" value="' in cek6.text.encode('utf-8'):
+            print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
+            open('single.txt', 'a').write(url+'/assets/js/tinymce/plugins/filemanager/dialog.php'+'\n')
         else:
              print(ktnred + '[Not]Wp' + '(' + url + ')' + CEND)
     except:
