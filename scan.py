@@ -85,7 +85,7 @@ print '\x1b[91m[\x1b[92m+\x1b[91m]\x1b[92mTOTAL WEBLIST=',count
 ##########################################################################################
 def jamet1(url):
     try:
-        Agent1 = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:28.0) Gecko/20100101 Firefox/28.0'}
+        Agent1 = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36'}
         cek = requests.get(url+'/filemanager/dialog.php', headers=Agent1, timeout=15)
         if '<input type="hidden" id="cur_dir" value="' in cek.text.encode('utf-8'):
             print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
