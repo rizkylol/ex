@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*
 #!/usr/bin/python
-#####################################
-##AwAwAw##
-#### PS: CHANGE Your Threads pool on line 352 to make script more faster :)
-#### code by Blog-Gab.Org thanks to KILL THE NET####
-##############[LIBS]###################
+#################################
 import requests, re, urllib2, os, sys, codecs, random               
+import requests_random_user_agent
+requests.packages.urllib3.disable_warnings()
 from multiprocessing.dummy import Pool                          
 from time import time as timer  
 import time
@@ -42,18 +40,13 @@ def print_logo():
 
     x = """      
 
-.   .                                        
-|-. |  ,-. ,-.    ,-. ,-. ,-.    ,-. ,-. ,-. 
-| | |  | | | | -- | | ,-| | | ,. | | |   | | 
-`-' `' `-' `-|    `-| `-^ ' ' `' `-' '   `-| 
-            ,|     ,|                     ,| 
-            `'     `'                     `' 
-
-                                                   
-Mass Check CMS Wp + Lara
-Youtube : Logic Internet
-Blog : https://www.blog-gan.org
-ICQ : https://icq.im/Shin403
+        .__          __            _______ _________  
+_______ |__|________|  | __ ___.__.\   _  \\______  \ 
+\_  __ \|  |\___   /|  |/ /<   |  |/  /_\  \   /    / 
+ |  | \/|  | /    / |    <  \___  |\  \_/   \ /    /  
+ |__|   |__|/_____ \|__|_ \ / ____| \_____  //____/   
+                  \/     \/ \/            \/          
+                                                      
 
 """
     for N, line in enumerate(x.split("\n")):
@@ -85,52 +78,63 @@ print '\x1b[91m[\x1b[92m+\x1b[91m]\x1b[92mTOTAL WEBLIST=',count
 ##########################################################################################
 def jamet1(url):
     try:
-        Agent1 = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36'}
-        cek = requests.get(url+'/filemanager/dialog.php', headers=Agent1, timeout=15)
+        #Agent1 = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36'}
+        cek = requests.get(url+'/filemanager/dialog.php', verify=False, timeout=15)
         if '<input type="hidden" id="cur_dir" value="' in cek.text.encode('utf-8'):
             print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
             open('single.txt', 'a').write(url+'/filemanager/dialog.php'+'\n')
-        cek1 = requests.get(url+'/admin/filemanager/dialog.php', headers=Agent1, timeout=15)
+        cek1 = requests.get(url+'/admin/filemanager/dialog.php', verify=False, timeout=15)
         if '<input type="hidden" id="cur_dir" value="' in cek1.text.encode('utf-8'):
             print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
             open('single.txt', 'a').write(url+'/admin/filemanager/dialog.php'+'\n')
-        cek2 = requests.get(url+'/assets/filemanager/dialog.php', headers=Agent1, timeout=15)
+        cek2 = requests.get(url+'/assets/filemanager/dialog.php', verify=False, timeout=15)
         if '<input type="hidden" id="cur_dir" value="' in cek2.text.encode('utf-8'):
             print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
             open('single.txt', 'a').write(url+'/assets/filemanager/dialog.php'+'\n')
-        cek3 = requests.get(url+'/plugins/filemanager/dialog.php', headers=Agent1, timeout=15)
+        cek3 = requests.get(url+'/plugins/filemanager/dialog.php', verify=False, timeout=15)
         if '<input type="hidden" id="cur_dir" value="' in cek3.text.encode('utf-8'):
             print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
             open('single.txt', 'a').write(url+'/plugins/filemanager/dialog.php'+'\n')
-        cek4 = requests.get(url+'/admin/js/tinymce/plugins/filemanager/dialog.php', headers=Agent1, timeout=15)
+        cek4 = requests.get(url+'/admin/js/tinymce/plugins/filemanager/dialog.php', verify=False, timeout=15)
         if '<input type="hidden" id="cur_dir" value="' in cek4.text.encode('utf-8'):
             print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
             open('single.txt', 'a').write(url+'/admin/js/tinymce/plugins/filemanager/dialog.php'+'\n')
-        cek5 = requests.get(url+'/js/filemanager/dialog.php', headers=Agent1, timeout=15)
+        cek5 = requests.get(url+'/js/filemanager/dialog.php', verify=False, timeout=15)
         if '<input type="hidden" id="cur_dir" value="' in cek5.text.encode('utf-8'):
             print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
             open('single.txt', 'a').write(url+'/js/filemanager/dialog.php'+'\n')
-        cek6 = requests.get(url+'/assets/js/tinymce/plugins/filemanager/dialog.php', headers=Agent1, timeout=15)
+        cek6 = requests.get(url+'/assets/js/tinymce/plugins/filemanager/dialog.php', verify=False, timeout=15)
         if '<input type="hidden" id="cur_dir" value="' in cek6.text.encode('utf-8'):
             print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
             open('single.txt', 'a').write(url+'/assets/js/tinymce/plugins/filemanager/dialog.php'+'\n')
+        cek7 = requests.get(url+'/assets/admin/js/tinymce/plugins/filemanager/dialog.php', verify=False, timeout=15)
+        if '<input type="hidden" id="cur_dir" value="' in cek7.text.encode('utf-8'):
+            print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
+            open('single.txt', 'a').write(url+'/assets/admin/js/tinymce/plugins/filemanager/dialog.php'+'\n')
+        cek8 = requests.get(url+'/js/tinymce/plugins/filemanager/dialog.php', verify=False, timeout=15)
+        if '<input type="hidden" id="cur_dir" value="' in cek8.text.encode('utf-8'):
+            print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
+            open('single.txt', 'a').write(url+'/js/tinymce/plugins/filemanager/dialog.php'+'\n')
+        cek9 = requests.get(url+'/scripts/filemanager/dialog.php', verify=False, timeout=15)
+        if '<input type="hidden" id="cur_dir" value="' in cek9.text.encode('utf-8'):
+            print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
+            open('single.txt', 'a').write(url+'/scripts/filemanager/dialog.php'+'\n')
+        cek10 = requests.get(url+'/js/tinymce/plugins/filemanager/dialog.php', verify=False, timeout=15)
+        if '<input type="hidden" id="cur_dir" value="' in cek10.text.encode('utf-8'):
+            print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
+            open('single.txt', 'a').write(url+'/js/tinymce/plugins/filemanager/dialog.php'+'\n')
         else:
-             print(ktnred + '[Not]Wp' + '(' + url + ')' + CEND)
+            open('failed.txt', 'a').write(url+'\n')
+            print(ktnred + '[Not]Wp' + '(' + url + ')' + CEND)
     except:
         pass
     pass
-
-def Jenderal92(url):
-	try:
-		jamet1(url)
-	except:
-		pass
 ##########################################################################################
 def Main():
     try:
         start = timer()
         pp = Pool(int(crownes))
-        pr = pp.map(Jenderal92, ooo)
+        pp = pp.map(jamet1, ooo)
         print('TIME TAKE: ' + str(timer() - start) + ' S')
     except:
         pass
